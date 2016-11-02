@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajaxtest</title>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script type="text/javascript">
+	$(function () {
+		$("button").click(function(event) {
+			/* Act on the event */
+			// $.post('demo_test_post.asp', {
+			// 	name: 'value1',
+			// 	url:"http://gp3098.vicp.net:86/jxc"
+			// }, 
+			// function(data, textStatus, xhr) {
+			// 	/*optional stuff to do after success */
+			// 	alert("数据: \n" + data + "\n 状态：" + textStatus)
+			// });
+			 $.ajax({
+		         url:"GetCustomers.asp",
+		         dataType:'json',
+		         async:true, 
+		         type:'get',
+		         success:function(data){
+		           
+		           console.log(data.a.name);
+		         },
+		         error:function(XMLHttpRequest, textStatus, errorThrown) {
+		           console.log(errorThrown);
+		         }});
+			});
+
+	})
+
+</script>
+</head>
+<body>
+	<button>发送一个HTTP get 请求</button>
+</body>
+</html>

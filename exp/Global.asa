@@ -1,0 +1,12 @@
+<script language=vbscript runat = server>
+sub application_onstart()
+	application("sum")=0
+end sub
+sub session_onstart()
+	session.timeout = 1
+	application("sum") = application("sum")+1
+end sub
+sub session_onend()
+	application("sum") = application("sum") -1
+end sub
+</script>
